@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import Header from "./components/header.vue";
 import ReviewForm from "./components/ReviewForm.vue";
 import ReviewGallery from "./components/ReviewGallery.vue";
 </script>
 
 <template>
-  <Header />
+  <!-- <Header /> -->
   <div class="container">
     <ReviewForm />
     <ReviewGallery />

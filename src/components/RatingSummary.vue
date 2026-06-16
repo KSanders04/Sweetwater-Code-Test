@@ -19,13 +19,32 @@ const starRows = computed<StarRow[]>(() => {
     return { stars, count, percent };
   });
 });
+
+const totalStars = computed<number>(() => {
+  return reviews.reduce((sum, review) => {
+    const value =
+      typeof review.starRating === "number"
+        ? review.starRating
+        : Number(review.starRating) || 0;
+    return sum + value;
+  }, 0);
+});
+
+const averageStars = computed<number>(() => {
+  return totalReviews > 0 ? totalStars.value / totalReviews : 0;
+});
+
+const averageStarsFormatted = computed<string>(() => {
+  return averageStars.value.toFixed(2);
+});
 </script>
 
 <template>
   <section class="summaryCard">
     <h2>Rating Summary</h2>
-    <p class="meta">{{ totalReviews }} total reviews</p>
-
+    <p class="meta">
+      {{ totalReviews }} reviews • Overall {{ averageStarsFormatted }} Stars
+    </p>
     <div v-for="row in starRows" :key="row.stars" class="barRow">
       <span class="label">{{ row.stars }} star</span>
       <div

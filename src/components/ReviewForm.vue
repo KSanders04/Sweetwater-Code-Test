@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import StarRating from "./starRating.vue";
+import StarRating from "./StarRating.vue";
 import { ref } from "vue";
 
 const myScore = ref(0);
@@ -13,7 +13,7 @@ const myScore = ref(0);
         <h3>Review Title</h3>
         <input />
       </div>
-      <div>
+      <div class="rate">
         <h3>Rate</h3>
         <StarRating v-model="myScore" />
       </div>
@@ -128,5 +128,11 @@ const myScore = ref(0);
   margin: 10px 0 0 0;
   font-weight: 600;
   font-size: large;
+}
+.rate {
+  margin: 0 0 10px 0;
+}
+.rate h3 {
+  margin: 0 0 0 0;
 }
 </style>
