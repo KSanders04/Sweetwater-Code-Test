@@ -11,7 +11,7 @@ const myScore = ref(0);
       <h2 class="title">Submit Your Review</h2>
       <div class="reviewTitleBox">
         <h3>Review Title</h3>
-        <input />
+        <input type="text" maxlength="60" />
       </div>
       <div>
         <h3>Rate</h3>
@@ -19,7 +19,7 @@ const myScore = ref(0);
       </div>
       <div class="reviewBox">
         <h3>Review</h3>
-        <textarea></textarea>
+        <textarea maxlength="2000"></textarea>
       </div>
       <div class="addImageBox">
         <h3>Add Image</h3>

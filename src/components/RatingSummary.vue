@@ -51,7 +51,7 @@ const averageStars = computed(() =>
 
 <style scoped>
 .summaryCard {
-  width: 71%;
+  /* width: 71%; */
   background: #f5f5f5;
   border-radius: 8px;
   padding: 24px;

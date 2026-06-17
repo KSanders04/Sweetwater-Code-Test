@@ -48,7 +48,6 @@ function toggle(i: number) {
 }
 .reviewCard {
   background-color: #f5f5f5;
-  width: 60%;
   padding: 20px 40px;
   margin: 0 0 20px 0;
   border-radius: 8px;
@@ -83,7 +82,6 @@ function toggle(i: number) {
 
   .reviewCard {
     padding: 20px 24px;
-    width: 91%;
   }
 }
 
