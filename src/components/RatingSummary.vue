@@ -61,6 +61,7 @@ const averageStarsFormatted = computed<string>(() => {
 
 <style scoped>
 .summaryCard {
+  width: 71%;
   background: #f5f5f5;
   border-radius: 8px;
   padding: 24px;
@@ -102,6 +103,7 @@ h2 {
 @media (max-width: 768px) {
   .summaryCard {
     padding: 16px;
+    width: 100%;
   }
 
   .barRow {
