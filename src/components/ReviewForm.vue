@@ -2,6 +2,22 @@
 import StarRating from "./StarRating.vue";
 import { ref } from "vue";
 
+const fileInput = ref<HTMLInputElement | null>(null);
+const selectedFile = ref<string>("No selected file...");
+
+function openFilePicker() {
+  fileInput.value?.click();
+}
+
+function handleFileChange(event: Event) {
+  const input = event.target as HTMLInputElement;
+  if (input.files && input.files.length > 0) {
+    selectedFile.value = input.files[0].name;
+  } else {
+    selectedFile.value = "No selected file...";
+  }
+}
+
 const myScore = ref(0);
 </script>
 
@@ -10,29 +26,42 @@ const myScore = ref(0);
     <div class="reviewForm">
       <h2 class="title">Submit Your Review</h2>
       <div class="reviewTitleBox">
-        <h3>Review Title</h3>
-        <input type="text" maxlength="60" />
+        <label for="review-title">Review Title</label>
+        <input type="text" id="review-title" maxlength="60" />
       </div>
-      <div>
-        <h3>Rate</h3>
+      <div role="group" aria-labelledby="rate-label">
+        <label id="rate-label">Rate</label>
         <StarRating v-model="myScore" />
       </div>
       <div class="reviewBox">
-        <h3>Review</h3>
-        <textarea maxlength="2000"></textarea>
+        <label for="review-body">Review</label>
+        <textarea id="review-body" maxlength="2000"></textarea>
       </div>
       <div class="addImageBox">
-        <h3>Add Image</h3>
+        <label>Add Image</label>
         <div class="upload-container">
           <div class="chooseFile">
-            <input type="file" ref="fileInput" style="display: none" />
-            <button>Select Files</button>
-            <p>No selected file...</p>
+            <input
+              type="file"
+              ref="fileInput"
+              id="file-upload"
+              aria-label="Upload image"
+              style="display: none"
+              @change="handleFileChange"
+            />
+            <button
+              type="button"
+              @click="openFilePicker"
+              aria-controls="file-upload"
+            >
+              Select Files
+            </button>
+            <p aria-live="polite">{{ selectedFile }}</p>
           </div>
         </div>
       </div>
       <div class="buttonBox">
-        <button>Submit Review</button>
+        <button type="submit">Submit Review</button>
       </div>
     </div>
   </section>
@@ -75,7 +104,8 @@ const myScore = ref(0);
   font-weight: 700;
   font-size: 22px;
 }
-.reviewForm h3 {
+.reviewForm h3,
+.reviewForm label {
   width: 50%;
   margin: 0 0 0 0;
   align-self: flex-start;
@@ -92,7 +122,7 @@ const myScore = ref(0);
   width: 100%;
   padding: 6px 8px;
   border-radius: 8px;
-  border: 1px solid darkgray;
+  border: 1px solid rgb(207, 207, 207);
 }
 .reviewTitleBox input {
   height: 50px;
@@ -113,6 +143,8 @@ const myScore = ref(0);
   align-items: center;
   width: 100%;
   gap: 20px;
+  border-radius: 8px;
+  border: 1px solid rgb(207, 207, 207);
   background-color: white;
   padding: 5px;
 }

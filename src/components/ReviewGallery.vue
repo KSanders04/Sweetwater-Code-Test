@@ -8,8 +8,6 @@ const expanded = ref<number | null>(null);
 function toggle(i: number) {
   expanded.value = expanded.value === i ? null : i;
 }
-
-// const myScore = ref(0);
 </script>
 
 <template>
@@ -42,9 +40,20 @@ function toggle(i: number) {
 
 <style scoped>
 .box {
-  width: 50%;
+  width: 40%;
   border-radius: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 .reviewCard {
   background-color: #f5f5f5;
@@ -91,9 +100,9 @@ function toggle(i: number) {
   }
 
   .reviewCard img {
-    width: 100%;
-    max-width: 180px;
     height: auto;
+    width: clamp(50px, 30%, 100px);
+    border-radius: 4px;
   }
 
   .description {
