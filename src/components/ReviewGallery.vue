@@ -44,7 +44,7 @@ function toggle(i: number) {
 .box {
   width: 50%;
   border-radius: 20px;
-  font-family: Roboto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .reviewCard {
   background-color: #f5f5f5;
@@ -83,7 +83,7 @@ function toggle(i: number) {
 
   .reviewCard {
     padding: 20px 24px;
-    width: 93%;
+    width: 91%;
   }
 }
 

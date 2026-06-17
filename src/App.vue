@@ -4,7 +4,6 @@ import ReviewGallery from "./components/ReviewGallery.vue";
 </script>
 
 <template>
-  <!-- <Header /> -->
   <div class="container">
     <ReviewForm />
     <ReviewGallery />
@@ -17,13 +16,7 @@ import ReviewGallery from "./components/ReviewGallery.vue";
   flex-direction: row;
   justify-content: center;
   gap: 20px;
-
-}
-
-@media (max-width: 1024px) {
-  .container {
-    padding: 16px;
-  }
+  padding: 16px;
 }
 
 @media (max-width: 768px) {

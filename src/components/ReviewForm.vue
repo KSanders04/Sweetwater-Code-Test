@@ -47,7 +47,19 @@ const myScore = ref(0);
   display: flex;
   justify-content: end;
   position: sticky;
-  top: 3rem;
+  top: 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
 }
 .reviewForm {
   background-color: #f5f5f5;
@@ -56,12 +68,11 @@ const myScore = ref(0);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: Roboto;
+  gap: 4px;
 }
 .title {
   text-align: left;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 22px;
 }
 .reviewForm h3 {
@@ -105,7 +116,7 @@ const myScore = ref(0);
   background-color: white;
   padding: 5px;
 }
-.chooseFile p{
+.chooseFile p {
   font-weight: 600;
   color: darkgrey;
 }

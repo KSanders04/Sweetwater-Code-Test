@@ -20,30 +20,20 @@ const starRows = computed<StarRow[]>(() => {
   });
 });
 
-const totalStars = computed<number>(() => {
-  return reviews.reduce((sum, review) => {
-    const value =
-      typeof review.starRating === "number"
-        ? review.starRating
-        : Number(review.starRating) || 0;
-    return sum + value;
-  }, 0);
-});
+const totalStars = computed(() =>
+  reviews.reduce((sum, review) => sum + (review.starRating ?? 0), 0),
+);
 
-const averageStars = computed<number>(() => {
-  return totalReviews > 0 ? totalStars.value / totalReviews : 0;
-});
-
-const averageStarsFormatted = computed<string>(() => {
-  return averageStars.value.toFixed(2);
-});
+const averageStars = computed(() =>
+  totalReviews > 0 ? (totalStars.value / totalReviews).toFixed(2) : "0.00",
+);
 </script>
 
 <template>
   <section class="summaryCard">
     <h2>Rating Summary</h2>
     <p class="meta">
-      {{ totalReviews }} reviews • Overall {{ averageStarsFormatted }} Stars
+      {{ totalReviews }} reviews • Overall {{ averageStars }} Stars
     </p>
     <div v-for="row in starRows" :key="row.stars" class="barRow">
       <span class="label">{{ row.stars }} star</span>
@@ -66,10 +56,10 @@ const averageStarsFormatted = computed<string>(() => {
   border-radius: 8px;
   padding: 24px;
   box-sizing: border-box;
-  font-family: Roboto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0 0 20px;
 }
-h2 {
+.summaryCard h2 {
   margin: 0;
 }
 .meta {
