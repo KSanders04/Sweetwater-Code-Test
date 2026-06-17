@@ -26,19 +26,25 @@ const myScore = ref(0);
     <div class="reviewForm">
       <h2 class="title">Submit Your Review</h2>
       <div class="reviewTitleBox">
-        <label for="review-title">Review Title</label>
+        <label for="review-title"
+          >Review Title<span class="required" aria-hidden="true">*</span></label
+        >
         <input type="text" id="review-title" maxlength="60" />
       </div>
       <div role="group" aria-labelledby="rate-label">
-        <label id="rate-label">Rate</label>
+        <label id="rate-label"
+          >Rate<span class="required" aria-hidden="true">*</span></label
+        >
         <StarRating v-model="myScore" />
       </div>
       <div class="reviewBox">
-        <label for="review-body">Review</label>
+        <label for="review-body"
+          >Review<span class="required" aria-hidden="true">*</span></label
+        >
         <textarea id="review-body" maxlength="2000"></textarea>
       </div>
       <div class="addImageBox">
-        <label>Add Image</label>
+        <label>Add Image<span class="optional">(optional)</span></label>
         <div class="upload-container">
           <div class="chooseFile">
             <input
@@ -92,7 +98,7 @@ const myScore = ref(0);
 }
 .reviewForm {
   background-color: #f5f5f5;
-  width: 65%;
+  width: 70%;
   padding: 24px 40px;
   border-radius: 8px;
   display: flex;
@@ -174,6 +180,16 @@ const myScore = ref(0);
   color: #ffffff;
   font-weight: 600;
   font-size: large;
+}
+.required {
+  color: #c0392b;
+  margin-left: 2px;
+}
+.optional {
+  font-size: 13px;
+  font-weight: 400;
+  color: #595959;
+  margin-left: 4px;
 }
 
 @media (max-width: 1024px) {
