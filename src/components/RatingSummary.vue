@@ -61,13 +61,12 @@ const averageStarsFormatted = computed<string>(() => {
 
 <style scoped>
 .summaryCard {
-  width: 71%;
   background: #f5f5f5;
   border-radius: 8px;
   padding: 24px;
   box-sizing: border-box;
   font-family: Roboto;
-  margin: 0 auto 20px 0;
+  margin: 0 0 20px;
 }
 h2 {
   margin: 0;
@@ -98,5 +97,20 @@ h2 {
   background: #3573e7;
   border-radius: 999px;
   transition: width 250ms ease;
+}
+
+@media (max-width: 768px) {
+  .summaryCard {
+    padding: 16px;
+  }
+
+  .barRow {
+    grid-template-columns: 60px 1fr 22px;
+    gap: 8px;
+  }
+
+  .meta {
+    margin-bottom: 16px;
+  }
 }
 </style>

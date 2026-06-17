@@ -47,7 +47,7 @@ function toggle(i: number) {
 }
 .reviewCard {
   background-color: #f5f5f5;
-  width: 60%;
+  /* width: 60%; */
   padding: 20px 40px;
   margin: 0 0 20px 0;
   border-radius: 8px;
@@ -73,5 +73,31 @@ function toggle(i: number) {
   cursor: pointer;
   padding: 0 0 9px 0;
   font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .box {
+    width: 100%;
+  }
+
+  .reviewCard {
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviewCard {
+    padding: 16px;
+  }
+
+  .reviewCard img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+  }
+
+  .description {
+    font-size: 15px;
+  }
 }
 </style>

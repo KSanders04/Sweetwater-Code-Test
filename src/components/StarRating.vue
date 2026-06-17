@@ -36,6 +36,7 @@ const setRating = (star) => {
 .star-rating {
   display: flex;
   gap: 4px;
+  flex-wrap: wrap;
 }
 .star {
   font-size: 24px;
@@ -45,5 +46,11 @@ const setRating = (star) => {
 }
 .star.filled {
   color: #fbbf24;
+}
+
+@media (max-width: 768px) {
+  .star {
+    font-size: 20px;
+  }
 }
 </style>

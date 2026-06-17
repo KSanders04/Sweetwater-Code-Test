@@ -27,7 +27,7 @@ const myScore = ref(0);
           <div class="chooseFile">
             <input type="file" ref="fileInput" style="display: none" />
             <button>Select Files</button>
-            <p class="file-info">No selected file...</p>
+            <p>No selected file...</p>
           </div>
         </div>
       </div>
@@ -44,7 +44,6 @@ const myScore = ref(0);
 .box {
   height: fit-content;
   width: 50%;
-  border-radius: 20px;
   display: flex;
   justify-content: end;
   position: sticky;
@@ -68,6 +67,7 @@ const myScore = ref(0);
   width: 50%;
   margin: 0 0 8px 0;
   align-self: flex-start;
+  font-weight: 600;
 }
 .reviewTitleBox,
 .reviewBox,
@@ -106,10 +106,16 @@ const myScore = ref(0);
   background-color: white;
   padding: 5px;
 }
+.chooseFile p{
+  font-weight: 600;
+  color: darkgrey;
+}
 .chooseFile button {
   height: 50px;
   font-size: 15px;
   font-weight: 550;
+  border-radius: 4px;
+  border-width: 0.5px;
 }
 .buttonBox {
   display: flex;
@@ -134,5 +140,46 @@ const myScore = ref(0);
 }
 .rate h3 {
   margin: 0 0 0 0;
+}
+
+@media (max-width: 1024px) {
+  .box {
+    width: 100%;
+    position: static;
+    justify-content: stretch;
+  }
+
+  .reviewForm {
+    width: 100%;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviewForm {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .reviewTitleBox input,
+  .reviewBox textarea,
+  .chooseFile button,
+  .buttonBox button {
+    height: auto;
+    min-height: 48px;
+  }
+
+  .chooseFile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .buttonBox button {
+    padding: 12px 16px;
+  }
 }
 </style>
