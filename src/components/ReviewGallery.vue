@@ -18,7 +18,7 @@ function toggle(i: number) {
 
     <div v-for="(review, i) in reviews" :key="i" class="reviewCard">
       <h2>{{ review.title }}</h2>
-      <Rates v-model="review.starRating" />
+      <Rates :modelValue="review.starRating" />
       <p class="description">
         <span v-if="expanded === i">{{ review.description }}</span>
         <span v-else>{{
@@ -44,6 +44,7 @@ function toggle(i: number) {
 .box {
   width: 50%;
   border-radius: 20px;
+  font-family: Roboto;
 }
 .reviewCard {
   background-color: #f5f5f5;
@@ -51,19 +52,18 @@ function toggle(i: number) {
   padding: 20px 40px;
   margin: 0 0 20px 0;
   border-radius: 8px;
-  font-family: Roboto;
 }
 .description {
   font-weight: 500;
-  font-size: 16px;
 }
 
 .user {
-  color: rgb(105, 105, 105);
+  color: rgb(110, 110, 110);
 }
 .reviewCard img {
-  height: 100px;
+  height: auto;
   width: 75px;
+  border-radius: 4px;
 }
 
 .readMore {
@@ -71,8 +71,9 @@ function toggle(i: number) {
   border: none;
   color: #0671ba;
   cursor: pointer;
-  padding: 0 0 9px 0;
+  padding: 4px 0 9px 0;
   font-weight: 600;
+  display: block;
 }
 
 @media (max-width: 1024px) {
