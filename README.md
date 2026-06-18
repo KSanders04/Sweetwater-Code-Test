@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is an implementation of portions of the provided Figma product review prototype. My goal was to transform the design into reusable, data-driven components while maintaining a clean and maintainable codebase. I also focused on making sure the UI components were responsive to all screen sizes and accessible for all users.
+This project is an implementation of the provided Figma product review prototype. My goal was to transform the design into reusable, data-driven components while maintaining a clean and maintainable codebase. I also focused on making sure the UI components were responsive to all screen sizes and accessible for all users.
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ I used Vite as the build tool because it provides fast startup times and a light
 ## Component Architecture
 
 ### Rating Summary
-The rating Summary component displays overall review informatinon. This includes the average rating, total review count, and also how the ratings are distributed. This component is designed to present review insights before a user reviews individual reviews.
+The Rating Summary component displays overall review information. This includes the average rating, total review count, and also how the ratings are distributed. This component is designed to present review insights before users browse individual reviews.
 
 ### Star Rating
 The Star Rating component provides an interactive interface for selecting a product rating when submitting a review. By separating this functionality into its own component, it can be reused throughout the application wherever rating input is required.
@@ -31,7 +31,7 @@ The Rates component is responsible for displaying the rating associated with a r
 ### Review Form
 The Review Form component allows users to create a review by providing a title, rating, review content, and optional images.
 
-On desktop or larger screen layouts, I chose to keep the review form visible while users search existing reviews. My reasoning was that allowing users to reference other reviews while writing their own creates a more convenient and user friendly experience.
+On desktop or larger screen layouts, I chose to keep the review form visible while users search existing reviews. My reasoning was that allowing users to reference other reviews while writing their own creates a more convenient and user-friendly experience.
 
 ### Review Gallery
 The Review Gallery component displays customer reviews using data from the JSON file. The component renders review information and images, allowing the interface to scale as new review data is introduced.
@@ -45,4 +45,9 @@ I incorporated accessibility best practices into this code. The application inco
 ## Responsiveness
 Having a responsive design was very important throughout the development. The layout has been designed to adapt across desktop, tablet, and mobile screen sizes.
 
-On smaller devices, the review form changes to be above the rating summary to create a more easier reading and review experience while maintaining usability and readability across screen sizes.
+On smaller devices, the review form moves abovethe rating summary to create an easier reading and review experience while maintaining usability and readability across screen sizes.
+
+## Running the Project
+1. Clone the repository
+2. Run ```npm install```
+3. Run ```npm run dev```
