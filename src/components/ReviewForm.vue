@@ -33,7 +33,6 @@ function handleFileChange(event: Event) {
     selectedFile.value = "No selected file...";
   }
 }
-
 </script>
 
 <template>
@@ -130,14 +129,12 @@ function handleFileChange(event: Event) {
   gap: 4px;
 }
 .title {
-  text-align: left;
   font-weight: 700;
   font-size: 22px;
 }
 .reviewForm h3,
 .reviewForm label {
-  width: 50%;
-  margin: 0 0 0 0;
+  margin: 0;
   align-self: flex-start;
   font-weight: 600;
 }
@@ -160,16 +157,12 @@ function handleFileChange(event: Event) {
 }
 .reviewBox textarea {
   font-size: medium;
-  width: 100%;
   min-height: 150px;
   max-height: 300px;
   resize: vertical;
-  box-sizing: border-box;
-  padding: 5px;
 }
 .chooseFile {
   display: flex;
-  flex-direction: row;
   align-items: center;
   width: 100%;
   gap: 20px;
@@ -180,7 +173,7 @@ function handleFileChange(event: Event) {
 }
 .chooseFile p {
   font-weight: 600;
-  color: darkgrey;
+  color: #595959;
 }
 .chooseFile button {
   height: 50px;
@@ -199,7 +192,7 @@ function handleFileChange(event: Event) {
   width: 100%;
   height: 50px;
   border-radius: 30px;
-  border-width: 0;
+  border: none;
   background-color: #0671ba;
   color: #ffffff;
   font-weight: 600;
@@ -222,7 +215,6 @@ function handleFileChange(event: Event) {
     position: static;
     justify-content: stretch;
   }
-
   .reviewForm {
     width: 100%;
     padding: 20px 24px;
@@ -233,11 +225,9 @@ function handleFileChange(event: Event) {
   .reviewForm {
     padding: 16px;
   }
-
   .title {
     font-size: 20px;
   }
-
   .reviewTitleBox input,
   .reviewBox textarea,
   .chooseFile button,
@@ -245,13 +235,11 @@ function handleFileChange(event: Event) {
     height: auto;
     min-height: 48px;
   }
-
   .chooseFile {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
-
   .buttonBox button {
     padding: 12px 16px;
   }
