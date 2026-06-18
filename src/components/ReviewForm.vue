@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import StarRating from "./StarRating.vue";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
+
+type ReviewForm = {
+  title: string;
+  rating: number;
+  review: string;
+  image: File | null;
+};
+
+const form = reactive<ReviewForm>({
+  title: "",
+  rating: 0,
+  review: "",
+  image: null,
+});
 
 const fileInput = ref<HTMLInputElement | null>(null);
 const selectedFile = ref<string>("No selected file...");
@@ -12,13 +26,14 @@ function openFilePicker() {
 function handleFileChange(event: Event) {
   const input = event.target as HTMLInputElement;
   if (input.files && input.files.length > 0) {
+    form.image = input.files[0];
     selectedFile.value = input.files[0].name;
   } else {
+    form.image = null;
     selectedFile.value = "No selected file...";
   }
 }
 
-const myScore = ref(0);
 </script>
 
 <template>
@@ -29,19 +44,28 @@ const myScore = ref(0);
         <label for="review-title"
           >Review Title<span class="required" aria-hidden="true">*</span></label
         >
-        <input type="text" id="review-title" maxlength="60" />
+        <input
+          type="text"
+          id="review-title"
+          v-model="form.title"
+          maxlength="60"
+        />
       </div>
       <div role="group" aria-labelledby="rate-label">
         <label id="rate-label"
           >Rate<span class="required" aria-hidden="true">*</span></label
         >
-        <StarRating v-model="myScore" />
+        <StarRating v-model="form.rating" />
       </div>
       <div class="reviewBox">
         <label for="review-body"
           >Review<span class="required" aria-hidden="true">*</span></label
         >
-        <textarea id="review-body" maxlength="2000"></textarea>
+        <textarea
+          id="review-body"
+          v-model="form.review"
+          maxlength="2000"
+        ></textarea>
       </div>
       <div class="addImageBox">
         <label>Add Image<span class="optional">(optional)</span></label>
